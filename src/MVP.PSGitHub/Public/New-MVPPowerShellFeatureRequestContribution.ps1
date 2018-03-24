@@ -14,7 +14,7 @@ function New-MVPPowerShellFeatureRequestContribution {
     process {
         $Issue = Invoke-RestMethod -Uri "https://api.github.com/repos/PowerShell/$Repository/issues/$IssueNumber" -ErrorAction stop
         if(-not $Issue) {
-            Write-Error "PowerShell/PowerShell-RFC#$IssueNumber not found."
+            Write-Error "PowerShell/$Repository#$IssueNumber not found."
             return
         }
         $Params = @{
