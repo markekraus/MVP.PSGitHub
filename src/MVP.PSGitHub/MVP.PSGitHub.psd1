@@ -50,7 +50,7 @@ Description = 'Utility Functions for Adding PowerShell GitHub Contributions to t
 # ProcessorArchitecture = ''
 
 # Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @('MVP')
+RequiredModules = @('MVP','BetterTls')
 
 # Assemblies that must be loaded prior to importing this module
 # RequiredAssemblies = @()
