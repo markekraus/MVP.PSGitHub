@@ -1,4 +1,4 @@
-function New-MVPPowerShellIssueComment {
+function New-MVPPowerShellIssueCommentContribution {
     [CmdletBinding(SupportsShouldProcess)]
     param (
         [datetime]

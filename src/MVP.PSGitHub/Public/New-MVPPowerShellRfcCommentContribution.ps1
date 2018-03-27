@@ -1,4 +1,4 @@
-function New-MVPPowerShellRfcComment {
+function New-MVPPowerShellRfcCommentContribution {
     [CmdletBinding(SupportsShouldProcess)]
     param (
         [datetime]
