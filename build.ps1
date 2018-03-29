@@ -25,6 +25,7 @@ $PSDefaultParameterValues['Install-Module:Scope'] = 'CurrentUser'
     @{Name = 'PSScriptAnalyzer'; RequiredVersion = '1.16.1'}
     @{Name = 'PlatyPS'; RequiredVersion = '0.9.0' }
     @{Name = 'BetterTls'; RequiredVersion = '0.1.0.0' }
+    @{Name = 'MVP'; RequiredVersion = '0.0.2.0' }
 
 ) | Foreach-Object {
     $Params = $_
