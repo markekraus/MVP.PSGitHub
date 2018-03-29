@@ -24,6 +24,7 @@ $PSDefaultParameterValues['Install-Module:Scope'] = 'CurrentUser'
     @{Name = 'BuildHelpers'; RequiredVersion = '1.0.1'}
     @{Name = 'PSScriptAnalyzer'; RequiredVersion = '1.16.1'}
     @{Name = 'PlatyPS'; RequiredVersion = '0.9.0' }
+    @{Name = 'BetterTls'; RequiredVersion = '0.1.0.0' }
 
 ) | Foreach-Object {
     $Params = $_
@@ -44,6 +45,8 @@ $ENV:BHBinDir = Join-Path $ENV:BHProjectPath "bin"
 if( $env:PSModulePath -notmatch [regex]::Escape($ENV:BHBinDir)) {
     $env:PSModulePath = '{0}{1}{2}' -f $ENV:BHBinDir, [System.Io.Path]::PathSeparator, $env:PSModulePath
 }
+
+Enable-Tls -Tls12 -Confirm:$false -Verbose
 
 Invoke-psake -buildFile .\psake.ps1 -taskList $Task -nologo
 exit ([int](-not $psake.build_success))
