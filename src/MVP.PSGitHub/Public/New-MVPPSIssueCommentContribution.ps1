@@ -15,10 +15,10 @@ function New-MVPPSIssueCommentContribution {
         $StartDate = [datetime]::Now,
 
         [Parameter(DontShow)]
-        $BaseApiUri = (Get-ApiBaseUri)
+        $ApiBaseUri = (Get-ApiBaseUri)
     )
     process {
-        $GitHubResult = Invoke-RestMethod -Uri "$BaseApiUri/repos/$Owner/$Project/issues/$IssueNumber" -ErrorAction stop
+        $GitHubResult = Invoke-RestMethod -Uri "$ApiBaseUri/repos/$Owner/$Project/issues/$IssueNumber" -ErrorAction stop
         if (-not $GitHubResult) {
             Write-Error "$Owner/$Project#$IssueNumber not found."
             return

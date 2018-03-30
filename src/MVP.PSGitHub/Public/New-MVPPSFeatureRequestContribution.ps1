@@ -15,7 +15,7 @@ function New-MVPPSFeatureRequestContribution {
         $StartDate = [datetime]::Now,
 
         [Parameter(DontShow)]
-        $BaseApiUri = (Get-ApiBaseUri)
+        $ApiBaseUri = (Get-ApiBaseUri)
     )
     process {
         $GitHubResult = Invoke-RestMethod -Uri "$GitHubResult/repos/$Owner/$Repository/issues/$IssueNumber" -ErrorAction stop

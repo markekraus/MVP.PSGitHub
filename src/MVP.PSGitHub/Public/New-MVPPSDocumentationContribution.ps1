@@ -15,10 +15,10 @@ function New-MVPPSDocumentationContribution {
         $StartDate = [datetime]::Now,
 
         [Parameter(DontShow)]
-        $BaseApiUri = (Get-ApiBaseUri)
+        $ApiBaseUri = (Get-ApiBaseUri)
     )
     process {
-        $GitHubResult = Invoke-RestMethod -Uri "$BaseApiUri/repos/$Owner/$Project/pulls/$PRNumber" -ErrorAction stop
+        $GitHubResult = Invoke-RestMethod -Uri "$ApiBaseUri/repos/$Owner/$Project/pulls/$PRNumber" -ErrorAction stop
         if (-not $GitHubResult) {
             Write-Error "$Owner/$Project#$PRNumber not found."
             return

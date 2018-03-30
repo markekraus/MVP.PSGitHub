@@ -15,10 +15,10 @@ function New-MVPPSBugReportContribution {
         $StartDate = [datetime]::Now,
 
         [Parameter(DontShow)]
-        $BaseApiUri = (Get-ApiBaseUri)
+        $ApiBaseUri = (Get-ApiBaseUri)
     )
     process {
-        $GitHubResult = Invoke-RestMethod -Uri "$BaseApiUri/repos/$Owner/$Repository/issues/$IssueNumber" -ErrorAction stop
+        $GitHubResult = Invoke-RestMethod -Uri "$ApiBaseUri/repos/$Owner/$Repository/issues/$IssueNumber" -ErrorAction stop
         if (-not $GitHubResult) {
             Write-Error "$Owner/$Repository#$IssueNumber not found."
             return
