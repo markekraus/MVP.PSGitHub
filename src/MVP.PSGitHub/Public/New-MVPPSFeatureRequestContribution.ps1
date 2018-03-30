@@ -1,20 +1,23 @@
 function New-MVPPSFeatureRequestContribution {
     [CmdletBinding(SupportsShouldProcess)]
     param (
-        [datetime]
-        $StartDate = [datetime]::Now,
+        [Parameter(Mandatory)]
+        [long]
+        $IssueNumber,
+
+        [String]
+        $Owner = 'PowerShell',
 
         [string]
         $Repository = 'PowerShell',
 
-        [Parameter(Mandatory)]
-        [long]
-        $IssueNumber
+        [datetime]
+        $StartDate = [datetime]::Now
     )
     process {
-        $Issue = Invoke-RestMethod -Uri "https://api.github.com/repos/PowerShell/$Repository/issues/$IssueNumber" -ErrorAction stop
+        $Issue = Invoke-RestMethod -Uri "https://api.github.com/repos/$Owner/$Repository/issues/$IssueNumber" -ErrorAction stop
         if(-not $Issue) {
-            Write-Error "PowerShell/$Repository#$IssueNumber not found."
+            Write-Error "$Owner/$Repository#$IssueNumber not found."
             return
         }
         $Params = @{

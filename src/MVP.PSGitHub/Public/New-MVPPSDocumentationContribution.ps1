@@ -1,8 +1,9 @@
 function New-MVPPSDocumentationContribution {
     [CmdletBinding(SupportsShouldProcess)]
     param (
-        [datetime]
-        $StartDate = [datetime]::Now,
+        [Parameter(Mandatory)]
+        [long]
+        $PRNumber,
 
         [String]
         $Owner = 'PowerShell',
@@ -10,9 +11,8 @@ function New-MVPPSDocumentationContribution {
         [String]
         $Project = 'PowerShell-Docs',
 
-        [Parameter(Mandatory)]
-        [long]
-        $PRNumber
+        [datetime]
+        $StartDate = [datetime]::Now
     )
     process {
         $PR = Invoke-RestMethod -Uri "https://api.github.com/repos/$Owner/$Project/pulls/$PRNumber" -ErrorAction stop

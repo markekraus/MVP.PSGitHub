@@ -1,16 +1,23 @@
 function New-MVPPSRfcCommentContribution {
     [CmdletBinding(SupportsShouldProcess)]
     param (
-        [datetime]
-        $StartDate = [datetime]::Now,
-
+        [Parameter(Mandatory)]
         [long]
-        $RfcPRNumber
+        $PRNumber,
+
+        [String]
+        $Owner = 'PowerShell',
+
+        [String]
+        $Project = 'PowerShell-RFC',
+
+        [datetime]
+        $StartDate = [datetime]::Now
     )
     process {
-        $PR = Invoke-RestMethod -Uri "https://api.github.com/repos/PowerShell/PowerShell-RFC/pulls/$RfcPRNumber" -ErrorAction stop
+        $PR = Invoke-RestMethod -Uri "https://api.github.com/repos/$Owner/$Project/pulls/$RfcPRNumber" -ErrorAction stop
         if(-not $PR) {
-            Write-Error "PowerShell/PowerShell-RFC#$RfcPRNumber not found."
+            Write-Error "$Owner/$Project/#$RfcPRNumber not found."
             return
         }
         $Params = @{

@@ -1,21 +1,23 @@
 function New-MVPPSIssueCommentContribution {
     [CmdletBinding(SupportsShouldProcess)]
     param (
-        [datetime]
-        $StartDate = [datetime]::Now,
+        [Parameter(Mandatory)]
+        [long]
+        $IssueNumber,
+
         [String]
         $Owner = 'PowerShell',
 
         [String]
         $Project = 'PowerShell',
 
-        [long]
-        $IssueNumber
+        [datetime]
+        $StartDate = [datetime]::Now
     )
     process {
         $PR = Invoke-RestMethod -Uri "https://api.github.com/repos/$Owner/$Project/issues/$IssueNumber" -ErrorAction stop
         if(-not $PR) {
-            Write-Error "PowerShell/PowerShell#$IssueNumber not found."
+            Write-Error "$Owner/$Project#$IssueNumber not found."
             return
         }
         $Params = @{
