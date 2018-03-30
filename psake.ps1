@@ -23,17 +23,16 @@ Properties {
         $Verbose = @{ Verbose = $True }
     }
     $CurrentVersion = [version](Get-Metadata -Path $env:BHPSModuleManifest)
-    $BuildVersion = [version]::New($CurrentVersion.Major, $CurrentVersion.Minor, $CurrentVersion.Build, ($CurrentVersion.Revision + 1))
+    $BuildVersion = [version]::New($CurrentVersion.Major, $CurrentVersion.Minor, ($CurrentVersion.Build + 1), ($CurrentVersion.Revision + 1))
     if ($ENV:BHBranchName -eq "master") {
-        $BuildVersion = [version]::New($CurrentVersion.Major, $CurrentVersion.Minor, ($CurrentVersion.Build + 1), 0)
+        $BuildVersion = [version]::New($CurrentVersion.Major, $CurrentVersion.Minor, ($CurrentVersion.Build + 1))
     }
     If ($ENV:BHBranchName -eq "master" -and $ENV:BHCommitMessage -match '!deploy') {
         $GalleryVersion = Get-NextPSGalleryVersion -Name $ModuleName
-        $BuildVersion = [version]::New($CurrentVersion.Major, ($CurrentVersion.Minor + 1), 0, 0)
+        $BuildVersion = [version]::New($CurrentVersion.Major, ($CurrentVersion.Minor + 1), 0)
         if (
             $CurrentVersion.Minor -eq 0 -and
-            $CurrentVersion.Build -eq 0 -and
-            $CurrentVersion.Revision -eq 0
+            $CurrentVersion.Build -eq 0
         ) {
             #This is a major version release, don't molest the the version
             $BuildVersion = $CurrentVersion
@@ -227,4 +226,8 @@ Task Deploy -depends Init {
         "`t* Your commit message includes !deploy (Current: $ENV:BHCommitMessage)"
     }
     "`n"
+}
+
+Task Clean {
+    Remove-Item "$ENV:BHBinDir\*" -Recurse -Force -Confirm:$false
 }
