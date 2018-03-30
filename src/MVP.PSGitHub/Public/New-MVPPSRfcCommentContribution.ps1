@@ -1,27 +1,23 @@
-function New-MVPPowerShellBugReportContribution {
+function New-MVPPSRfcCommentContribution {
     [CmdletBinding(SupportsShouldProcess)]
     param (
         [datetime]
         $StartDate = [datetime]::Now,
 
-        [string]
-        $Repository = 'PowerShell',
-
-        [Parameter(Mandatory)]
         [long]
-        $IssueNumber
+        $RfcPRNumber
     )
     process {
-        $Issue = Invoke-RestMethod -Uri "https://api.github.com/repos/PowerShell/$Repository/issues/$IssueNumber" -ErrorAction stop
-        if(-not $Issue) {
-            Write-Error "PowerShell/$Repository#$IssueNumber not found."
+        $PR = Invoke-RestMethod -Uri "https://api.github.com/repos/PowerShell/PowerShell-RFC/pulls/$RfcPRNumber" -ErrorAction stop
+        if(-not $PR) {
+            Write-Error "PowerShell/PowerShell-RFC#$RfcPRNumber not found."
             return
         }
         $Params = @{
             StartDate              = $StartDate.ToString('yyy-MM-dd')
-            Title                  = 'Bug Report - {0} #{1}' -f $Issue.title, $IssueNumber
-            Description            = 'Report a bug on a PowerShell Open Source project.' 
-            ReferenceUrl           = $Issue.html_url 
+            Title                  = 'PowerShell RFC Comment - {0} #{1}' -f $PR.title, $RfcPRNumber
+            Description            = 'Provide feedback on PowerShell RFC' 
+            ReferenceUrl           = $PR.html_url 
             AnnualQuantity         = 1 
             SecondAnnualQuantity   = 0 
             AnnualReach            = 0 

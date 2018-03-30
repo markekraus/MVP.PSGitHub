@@ -1,4 +1,4 @@
-function New-MVPPowerShellFeatureRequestContribution {
+function New-MVPPSBugReportContribution {
     [CmdletBinding(SupportsShouldProcess)]
     param (
         [datetime]
@@ -19,8 +19,8 @@ function New-MVPPowerShellFeatureRequestContribution {
         }
         $Params = @{
             StartDate              = $StartDate.ToString('yyy-MM-dd')
-            Title                  = 'Feature Request - {0} #{1}' -f $Issue.title, $IssueNumber
-            Description            = 'Request a feature on a PowerShell Open Source project.' 
+            Title                  = 'Bug Report - {0} #{1}' -f $Issue.title, $IssueNumber
+            Description            = 'Report a bug on a PowerShell Open Source project.' 
             ReferenceUrl           = $Issue.html_url 
             AnnualQuantity         = 1 
             SecondAnnualQuantity   = 0 

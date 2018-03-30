@@ -1,30 +1,27 @@
-function New-MVPPowerShellDocumentationContribution {
+function New-MVPPSFeatureRequestContribution {
     [CmdletBinding(SupportsShouldProcess)]
     param (
         [datetime]
         $StartDate = [datetime]::Now,
 
-        [String]
-        $Owner = 'PowerShell',
-
-        [String]
-        $Project = 'PowerShell-Docs',
+        [string]
+        $Repository = 'PowerShell',
 
         [Parameter(Mandatory)]
         [long]
-        $PRNumber
+        $IssueNumber
     )
     process {
-        $PR = Invoke-RestMethod -Uri "https://api.github.com/repos/$Owner/$Project/pulls/$PRNumber" -ErrorAction stop
-        if(-not $PR) {
-            Write-Error "$Owner/$Project#$PRNumber not found."
+        $Issue = Invoke-RestMethod -Uri "https://api.github.com/repos/PowerShell/$Repository/issues/$IssueNumber" -ErrorAction stop
+        if(-not $Issue) {
+            Write-Error "PowerShell/$Repository#$IssueNumber not found."
             return
         }
         $Params = @{
             StartDate              = $StartDate.ToString('yyy-MM-dd')
-            Title                  = 'PowerShell Documentation - {0} #{1}' -f $PR.title, $PRNumber
-            Description            = 'Provide documentation for PowerShell.' 
-            ReferenceUrl           = $PR.html_url 
+            Title                  = 'Feature Request - {0} #{1}' -f $Issue.title, $IssueNumber
+            Description            = 'Request a feature on a PowerShell Open Source project.' 
+            ReferenceUrl           = $Issue.html_url 
             AnnualQuantity         = 1 
             SecondAnnualQuantity   = 0 
             AnnualReach            = 0 
