@@ -8,31 +8,37 @@ schema: 2.0.0
 # New-MVPPSIssueCommentContribution
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Creates a new PowerShell Issue Comment MVP Contribution.
 
 ## SYNTAX
 
 ```
-New-MVPPSIssueCommentContribution [-IssueNumber] <Int64> [[-Owner] <String>] [[-Project] <String>]
- [[-StartDate] <DateTime>] [[-BaseApiUri] <Object>] [-WhatIf] [-Confirm] [<CommonParameters>]
+New-MVPPSIssueCommentContribution [-IssueNumber] <Int64> [[-Owner] <String>] [[-Repository] <String>]
+ [[-StartDate] <DateTime>] [[-ApiBaseUri] <Object>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+Queries the GitHub API for the supplied issue,
+generates an MVP contribution,
+then submits contribution to the MVP API.
+
+Use this to easily submit MVP Contributions for answering or providing valuable comments to issues in PowerShell related GitHub repositories.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+New-MVPPSIssueCommentContribution -IssueNumber 6533
 ```
 
-{{ Add example description here }}
+This example will submit a MVP Contribution for issue 6533 in the PowerShell/PowerShell GitHub repository.
 
 ## PARAMETERS
 
-### -BaseApiUri
-{{Fill BaseApiUri Description}}
+### -ApiBaseUri
+Base URI of the GitHub API.
+The default is https://api.github.com
+This can be overridden using the configuration module.
 
 ```yaml
 Type: Object
@@ -47,7 +53,7 @@ Accept wildcard characters: False
 ```
 
 ### -IssueNumber
-{{Fill IssueNumber Description}}
+The Issue Number where the PowerShell Issue comment was made.
 
 ```yaml
 Type: Int64
@@ -62,7 +68,7 @@ Accept wildcard characters: False
 ```
 
 ### -Owner
-{{Fill Owner Description}}
+The GitHub Owner of the project.
 
 ```yaml
 Type: String
@@ -71,13 +77,13 @@ Aliases:
 
 Required: False
 Position: 1
-Default value: None
+Default value: PowerShell
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Project
-{{Fill Project Description}}
+### -Repository
+The GitHub repository.
 
 ```yaml
 Type: String
@@ -86,13 +92,14 @@ Aliases:
 
 Required: False
 Position: 2
-Default value: None
+Default value: PowerShell
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### -StartDate
-{{Fill StartDate Description}}
+The date to use for the MVP Contribution.
+The default is the current date.
 
 ```yaml
 Type: DateTime
@@ -151,3 +158,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/markekraus/MVP.PSGitHub/blob/master/Docs/New-MVPPSIssueCommentContribution.md](https://github.com/markekraus/MVP.PSGitHub/blob/master/Docs/New-MVPPSIssueCommentContribution.md)
