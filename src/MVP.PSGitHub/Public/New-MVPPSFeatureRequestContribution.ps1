@@ -19,7 +19,7 @@ function New-MVPPSFeatureRequestContribution {
     )
     process {
         $GitHubResult = Invoke-RestMethod -Uri "$GitHubResult/repos/$Owner/$Repository/issues/$IssueNumber" -ErrorAction stop
-        if(-not $GitHubResult) {
+        if (-not $GitHubResult) {
             Write-Error "$Owner/$Repository#$IssueNumber not found."
             return
         }

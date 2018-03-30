@@ -19,7 +19,7 @@ function New-MVPPSIssueCommentContribution {
     )
     process {
         $GitHubResult = Invoke-RestMethod -Uri "$BaseApiUri/repos/$Owner/$Project/issues/$IssueNumber" -ErrorAction stop
-        if(-not $GitHubResult) {
+        if (-not $GitHubResult) {
             Write-Error "$Owner/$Project#$IssueNumber not found."
             return
         }

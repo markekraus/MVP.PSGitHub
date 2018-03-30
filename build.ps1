@@ -43,7 +43,7 @@ Set-BuildEnvironment -ErrorAction SilentlyContinue -Path src -Force
 Set-BuildEnvironment -ErrorAction SilentlyContinue -Force
 $ENV:BHBuildOutput = Join-Path $ENV:BHProjectPath "bin\$ENV:BHProjectName"
 $ENV:BHBinDir = Join-Path $ENV:BHProjectPath "bin"
-if( $env:PSModulePath -notmatch [regex]::Escape($ENV:BHBinDir)) {
+if ( $env:PSModulePath -notmatch [regex]::Escape($ENV:BHBinDir)) {
     $env:PSModulePath = '{0}{1}{2}' -f $ENV:BHBinDir, [System.Io.Path]::PathSeparator, $env:PSModulePath
 }
 

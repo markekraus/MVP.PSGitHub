@@ -19,7 +19,7 @@ function New-MVPPSRfcCommentContribution {
     )
     process {
         $GitHubResult = Invoke-RestMethod -Uri "$BaseApiUri/repos/$Owner/$Project/pulls/$PRNumber" -ErrorAction stop
-        if(-not $GitHubResult) {
+        if (-not $GitHubResult) {
             Write-Error "$Owner/$Project/#$PRNumber not found."
             return
         }

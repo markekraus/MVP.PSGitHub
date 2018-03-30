@@ -19,7 +19,7 @@ function New-MVPPSBugReportContribution {
     )
     process {
         $GitHubResult = Invoke-RestMethod -Uri "$BaseApiUri/repos/$Owner/$Repository/issues/$IssueNumber" -ErrorAction stop
-        if(-not $GitHubResult) {
+        if (-not $GitHubResult) {
             Write-Error "$Owner/$Repository#$IssueNumber not found."
             return
         }
