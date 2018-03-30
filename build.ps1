@@ -26,6 +26,7 @@ $PSDefaultParameterValues['Install-Module:Scope'] = 'CurrentUser'
     @{Name = 'PlatyPS'; RequiredVersion = '0.9.0' }
     @{Name = 'BetterTls'; RequiredVersion = '0.1.0.0' }
     @{Name = 'MVP'; RequiredVersion = '0.0.2.0' }
+    @{Name = 'configuration'; RequiredVersion = '1.2.0' }
 
 ) | Foreach-Object {
     $Params = $_

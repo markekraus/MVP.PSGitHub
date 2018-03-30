@@ -63,6 +63,7 @@ Task Build -Depends Init {
     $lines
     New-Item -ItemType Directory -Path $DestinationFolder -Force -ErrorAction SilentlyContinue
     Copy-Item $ENV:BHPSModuleManifest $DestinationManifest -Force
+    Copy-Item "$ModuleFolder\Configuration.psd1" "$DestinationFolder\Configuration.psd1" -Force -ErrorAction SilentlyContinue
 
     # Bump the module version
     "Updating Module version to $BuildVersion"

@@ -49,8 +49,8 @@ Description = 'Utility Functions for Adding PowerShell GitHub Contributions to t
 # Processor architecture (None, X86, Amd64) required by this module
 # ProcessorArchitecture = ''
 
-# Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @('MVP','BetterTls')
+    # Modules that must be imported into the global environment prior to importing this module
+    RequiredModules   = @('MVP', 'BetterTls', 'configuration')
 
 # Assemblies that must be loaded prior to importing this module
 # RequiredAssemblies = @()

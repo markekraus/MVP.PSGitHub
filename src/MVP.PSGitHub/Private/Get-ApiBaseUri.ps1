@@ -2,6 +2,7 @@ function Get-ApiBaseUri {
     [CmdletBinding()]
     param ()
     end {
-        $Script:ApiBaseUri
+        $Config = Import-Configuration
+        $Config.GitHubApiBaseUri
     }
 }
