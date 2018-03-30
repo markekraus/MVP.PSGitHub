@@ -9,7 +9,7 @@ function New-MVPPSDocumentationContribution {
         $Owner = 'PowerShell',
 
         [String]
-        $Project = 'PowerShell-Docs',
+        $Repository = 'PowerShell-Docs',
 
         [datetime]
         $StartDate = [datetime]::Now,
@@ -18,9 +18,9 @@ function New-MVPPSDocumentationContribution {
         $ApiBaseUri = (Get-ApiBaseUri)
     )
     process {
-        $GitHubResult = Invoke-RestMethod -Uri "$ApiBaseUri/repos/$Owner/$Project/pulls/$PRNumber" -ErrorAction stop
+        $GitHubResult = Invoke-RestMethod -Uri "$ApiBaseUri/repos/$Owner/$Repository/pulls/$PRNumber" -ErrorAction stop
         if (-not $GitHubResult) {
-            Write-Error "$Owner/$Project#$PRNumber not found."
+            Write-Error "$Owner/$Repository#$PRNumber not found."
             return
         }
         $Params = @{

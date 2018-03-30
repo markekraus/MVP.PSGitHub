@@ -9,7 +9,7 @@ function New-MVPPSIssueCommentContribution {
         $Owner = 'PowerShell',
 
         [String]
-        $Project = 'PowerShell',
+        $Repository = 'PowerShell',
 
         [datetime]
         $StartDate = [datetime]::Now,
@@ -18,9 +18,9 @@ function New-MVPPSIssueCommentContribution {
         $ApiBaseUri = (Get-ApiBaseUri)
     )
     process {
-        $GitHubResult = Invoke-RestMethod -Uri "$ApiBaseUri/repos/$Owner/$Project/issues/$IssueNumber" -ErrorAction stop
+        $GitHubResult = Invoke-RestMethod -Uri "$ApiBaseUri/repos/$Owner/$Repository/issues/$IssueNumber" -ErrorAction stop
         if (-not $GitHubResult) {
-            Write-Error "$Owner/$Project#$IssueNumber not found."
+            Write-Error "$Owner/$Repository#$IssueNumber not found."
             return
         }
         $Params = @{
