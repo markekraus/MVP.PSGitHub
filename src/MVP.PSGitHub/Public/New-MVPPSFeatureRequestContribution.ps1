@@ -12,19 +12,22 @@ function New-MVPPSFeatureRequestContribution {
         $Repository = 'PowerShell',
 
         [datetime]
-        $StartDate = [datetime]::Now
+        $StartDate = [datetime]::Now,
+
+        [Parameter(DontShow)]
+        $BaseApiUri = (Get-BaseApiUri)
     )
     process {
-        $Issue = Invoke-RestMethod -Uri "https://api.github.com/repos/$Owner/$Repository/issues/$IssueNumber" -ErrorAction stop
-        if(-not $Issue) {
+        $GitHubResult = Invoke-RestMethod -Uri "$GitHubResult/repos/$Owner/$Repository/issues/$IssueNumber" -ErrorAction stop
+        if(-not $GitHubResult) {
             Write-Error "$Owner/$Repository#$IssueNumber not found."
             return
         }
         $Params = @{
             StartDate              = $StartDate.ToString('yyy-MM-dd')
-            Title                  = 'Feature Request - {0} #{1}' -f $Issue.title, $IssueNumber
+            Title                  = 'Feature Request - {0} #{1}' -f $GitHubResult.title, $IssueNumber
             Description            = 'Request a feature on a PowerShell Open Source project.' 
-            ReferenceUrl           = $Issue.html_url 
+            ReferenceUrl           = $GitHubResult.html_url 
             AnnualQuantity         = 1 
             SecondAnnualQuantity   = 0 
             AnnualReach            = 0 

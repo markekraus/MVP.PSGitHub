@@ -12,19 +12,22 @@ function New-MVPPSDocumentationContribution {
         $Project = 'PowerShell-Docs',
 
         [datetime]
-        $StartDate = [datetime]::Now
+        $StartDate = [datetime]::Now,
+
+        [Parameter(DontShow)]
+        $BaseApiUri = (Get-BaseApiUri)
     )
     process {
-        $PR = Invoke-RestMethod -Uri "https://api.github.com/repos/$Owner/$Project/pulls/$PRNumber" -ErrorAction stop
-        if(-not $PR) {
+        $GitHubResult = Invoke-RestMethod -Uri "$BaseApiUri/repos/$Owner/$Project/pulls/$PRNumber" -ErrorAction stop
+        if(-not $GitHubResult) {
             Write-Error "$Owner/$Project#$PRNumber not found."
             return
         }
         $Params = @{
             StartDate              = $StartDate.ToString('yyy-MM-dd')
-            Title                  = 'PowerShell Documentation - {0} #{1}' -f $PR.title, $PRNumber
+            Title                  = 'PowerShell Documentation - {0} #{1}' -f $GitHubResult.title, $PRNumber
             Description            = 'Provide documentation for PowerShell.' 
-            ReferenceUrl           = $PR.html_url 
+            ReferenceUrl           = $GitHubResult.html_url 
             AnnualQuantity         = 1 
             SecondAnnualQuantity   = 0 
             AnnualReach            = 0 

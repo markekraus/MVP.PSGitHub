@@ -12,19 +12,22 @@ function New-MVPPSRfcCommentContribution {
         $Project = 'PowerShell-RFC',
 
         [datetime]
-        $StartDate = [datetime]::Now
+        $StartDate = [datetime]::Now,
+
+        [Parameter(DontShow)]
+        $BaseApiUri = (Get-BaseApiUri)
     )
     process {
-        $PR = Invoke-RestMethod -Uri "https://api.github.com/repos/$Owner/$Project/pulls/$RfcPRNumber" -ErrorAction stop
-        if(-not $PR) {
-            Write-Error "$Owner/$Project/#$RfcPRNumber not found."
+        $GitHubResult = Invoke-RestMethod -Uri "$BaseApiUri/repos/$Owner/$Project/pulls/$PRNumber" -ErrorAction stop
+        if(-not $GitHubResult) {
+            Write-Error "$Owner/$Project/#$PRNumber not found."
             return
         }
         $Params = @{
             StartDate              = $StartDate.ToString('yyy-MM-dd')
-            Title                  = 'PowerShell RFC Comment - {0} #{1}' -f $PR.title, $RfcPRNumber
+            Title                  = 'PowerShell RFC Comment - {0} #{1}' -f $GitHubResult.title, $PRNumber
             Description            = 'Provide feedback on PowerShell RFC' 
-            ReferenceUrl           = $PR.html_url 
+            ReferenceUrl           = $GitHubResult.html_url 
             AnnualQuantity         = 1 
             SecondAnnualQuantity   = 0 
             AnnualReach            = 0 
