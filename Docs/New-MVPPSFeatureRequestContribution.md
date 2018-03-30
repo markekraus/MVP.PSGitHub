@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# New-MVPPowerShellIssueCommentContribution
+# New-MVPPSFeatureRequestContribution
 
 ## SYNOPSIS
 {{Fill in the Synopsis}}
@@ -13,8 +13,8 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-MVPPowerShellIssueCommentContribution [[-StartDate] <DateTime>] [-Owner <String>] [-Project <String>]
- [[-IssueNumber] <Int64>] [-WhatIf] [-Confirm] [<CommonParameters>]
+New-MVPPSFeatureRequestContribution [-IssueNumber] <Int64> [[-Owner] <String>] [[-Repository] <String>]
+ [[-StartDate] <DateTime>] [[-BaseApiUri] <Object>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -31,6 +31,21 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
+### -BaseApiUri
+{{Fill BaseApiUri Description}}
+
+```yaml
+Type: Object
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 4
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -IssueNumber
 {{Fill IssueNumber Description}}
 
@@ -39,8 +54,8 @@ Type: Int64
 Parameter Sets: (All)
 Aliases:
 
-Required: False
-Position: 1
+Required: True
+Position: 0
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -55,14 +70,14 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: Named
+Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Project
-{{Fill Project Description}}
+### -Repository
+{{Fill Repository Description}}
 
 ```yaml
 Type: String
@@ -70,7 +85,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: Named
+Position: 2
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -85,7 +100,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 0
+Position: 3
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

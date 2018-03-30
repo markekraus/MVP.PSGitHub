@@ -11,18 +11,18 @@ Locale: en-US
 {{Manually Enter Description Here}}
 
 ## MVP.PSGitHub Cmdlets
-### [New-MVPPowerShellBugReportContribution](New-MVPPowerShellBugReportContribution.md)
+### [New-MVPPSBugReportContribution](New-MVPPSBugReportContribution.md)
 {{Fill in the Synopsis}}
 
-### [New-MVPPowerShellDocumentationContribution](New-MVPPowerShellDocumentationContribution.md)
+### [New-MVPPSDocumentationContribution](New-MVPPSDocumentationContribution.md)
 {{Fill in the Synopsis}}
 
-### [New-MVPPowerShellFeatureRequestContribution](New-MVPPowerShellFeatureRequestContribution.md)
+### [New-MVPPSFeatureRequestContribution](New-MVPPSFeatureRequestContribution.md)
 {{Fill in the Synopsis}}
 
-### [New-MVPPowerShellIssueCommentContribution](New-MVPPowerShellIssueCommentContribution.md)
+### [New-MVPPSIssueCommentContribution](New-MVPPSIssueCommentContribution.md)
 {{Fill in the Synopsis}}
 
-### [New-MVPPowerShellRfcCommentContribution](New-MVPPowerShellRfcCommentContribution.md)
+### [New-MVPPSRfcCommentContribution](New-MVPPSRfcCommentContribution.md)
 {{Fill in the Synopsis}}
 

@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# New-MVPPowerShellDocumentationContribution
+# New-MVPPSBugReportContribution
 
 ## SYNOPSIS
 {{Fill in the Synopsis}}
@@ -13,8 +13,8 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-MVPPowerShellDocumentationContribution [[-StartDate] <DateTime>] [[-Owner] <String>] [[-Project] <String>]
- [-PRNumber] <Int64> [-WhatIf] [-Confirm] [<CommonParameters>]
+New-MVPPSBugReportContribution [-IssueNumber] <Int64> [[-Owner] <String>] [[-Repository] <String>]
+ [[-StartDate] <DateTime>] [[-BaseApiUri] <Object>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -31,6 +31,36 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
+### -BaseApiUri
+{{Fill BaseApiUri Description}}
+
+```yaml
+Type: Object
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 4
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -IssueNumber
+{{Fill IssueNumber Description}}
+
+```yaml
+Type: Int64
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 0
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Owner
 {{Fill Owner Description}}
 
@@ -46,23 +76,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -PRNumber
-{{Fill PRNumber Description}}
-
-```yaml
-Type: Int64
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 3
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Project
-{{Fill Project Description}}
+### -Repository
+{{Fill Repository Description}}
 
 ```yaml
 Type: String
@@ -85,7 +100,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 0
+Position: 3
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
