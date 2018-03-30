@@ -15,7 +15,7 @@ function New-MVPPSIssueCommentContribution {
         $StartDate = [datetime]::Now,
 
         [Parameter(DontShow)]
-        $BaseApiUri = (Get-BaseApiUri)
+        $BaseApiUri = (Get-ApiBaseUri)
     )
     process {
         $GitHubResult = Invoke-RestMethod -Uri "$BaseApiUri/repos/$Owner/$Project/issues/$IssueNumber" -ErrorAction stop
@@ -27,10 +27,10 @@ function New-MVPPSIssueCommentContribution {
             StartDate              = $StartDate.ToString('yyy-MM-dd')
             Title                  = 'PowerShell Issue Comment - {0} #{1}' -f $GitHubResult.title, $IssueNumber
             Description            = 'Provide feedback on PowerShell Issue.'
-            ReferenceUrl           = $GitHubResult.html_url 
-            AnnualQuantity         = 1 
-            SecondAnnualQuantity   = 0 
-            AnnualReach            = 0 
+            ReferenceUrl           = $GitHubResult.html_url
+            AnnualQuantity         = 1
+            SecondAnnualQuantity   = 0
+            AnnualReach            = 0
             Visibility             = 'Everyone'
             ContributionTechnology = 'PowerShell'
             ContributionType       = 'Open Source Project(s)'

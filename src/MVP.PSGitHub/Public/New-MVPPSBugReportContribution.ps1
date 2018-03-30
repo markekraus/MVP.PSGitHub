@@ -15,7 +15,7 @@ function New-MVPPSBugReportContribution {
         $StartDate = [datetime]::Now,
 
         [Parameter(DontShow)]
-        $BaseApiUri = (Get-BaseApiUri)
+        $BaseApiUri = (Get-ApiBaseUri)
     )
     process {
         $GitHubResult = Invoke-RestMethod -Uri "$BaseApiUri/repos/$Owner/$Repository/issues/$IssueNumber" -ErrorAction stop
@@ -26,11 +26,11 @@ function New-MVPPSBugReportContribution {
         $Params = @{
             StartDate              = $StartDate.ToString('yyy-MM-dd')
             Title                  = 'Bug Report - {0} #{1}' -f $GitHubResult.title, $IssueNumber
-            Description            = 'Report a bug on a PowerShell Open Source project.' 
-            ReferenceUrl           = $GitHubResult.html_url 
-            AnnualQuantity         = 1 
-            SecondAnnualQuantity   = 0 
-            AnnualReach            = 0 
+            Description            = 'Report a bug on a PowerShell Open Source project.'
+            ReferenceUrl           = $GitHubResult.html_url
+            AnnualQuantity         = 1
+            SecondAnnualQuantity   = 0
+            AnnualReach            = 0
             Visibility             = 'Everyone'
             ContributionTechnology = 'PowerShell'
             ContributionType       = 'Open Source Project(s)'

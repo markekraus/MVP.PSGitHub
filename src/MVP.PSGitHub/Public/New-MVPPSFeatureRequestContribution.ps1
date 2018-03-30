@@ -15,7 +15,7 @@ function New-MVPPSFeatureRequestContribution {
         $StartDate = [datetime]::Now,
 
         [Parameter(DontShow)]
-        $BaseApiUri = (Get-BaseApiUri)
+        $BaseApiUri = (Get-ApiBaseUri)
     )
     process {
         $GitHubResult = Invoke-RestMethod -Uri "$GitHubResult/repos/$Owner/$Repository/issues/$IssueNumber" -ErrorAction stop
@@ -26,11 +26,11 @@ function New-MVPPSFeatureRequestContribution {
         $Params = @{
             StartDate              = $StartDate.ToString('yyy-MM-dd')
             Title                  = 'Feature Request - {0} #{1}' -f $GitHubResult.title, $IssueNumber
-            Description            = 'Request a feature on a PowerShell Open Source project.' 
-            ReferenceUrl           = $GitHubResult.html_url 
-            AnnualQuantity         = 1 
-            SecondAnnualQuantity   = 0 
-            AnnualReach            = 0 
+            Description            = 'Request a feature on a PowerShell Open Source project.'
+            ReferenceUrl           = $GitHubResult.html_url
+            AnnualQuantity         = 1
+            SecondAnnualQuantity   = 0
+            AnnualReach            = 0
             Visibility             = 'Everyone'
             ContributionTechnology = 'PowerShell'
             ContributionType       = 'Open Source Project(s)'

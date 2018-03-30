@@ -18,12 +18,14 @@ Get-PackageProvider -Name NuGet -ForceBootstrap | Out-Null
 $PSDefaultParameterValues['Install-Module:Scope'] = 'CurrentUser'
 
 @(
+    # Build Tools
     @{Name = 'Psake'; RequiredVersion = '4.7.0'}
     @{Name = 'Pester'; RequiredVersion = '4.3.1'; SkipPublisherCheck = $true}
     @{Name = 'PSDeploy'; RequiredVersion = '0.2.3'}
     @{Name = 'BuildHelpers'; RequiredVersion = '1.0.1'}
     @{Name = 'PSScriptAnalyzer'; RequiredVersion = '1.16.1'}
     @{Name = 'PlatyPS'; RequiredVersion = '0.9.0' }
+    # Module Dependencies
     @{Name = 'BetterTls'; RequiredVersion = '0.1.0.0' }
     @{Name = 'MVP'; RequiredVersion = '0.0.2.0' }
     @{Name = 'configuration'; RequiredVersion = '1.2.0' }
