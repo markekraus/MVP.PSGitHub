@@ -1,5 +1,7 @@
 # MVP.PSGitHub
 
+[![Build status](https://ci.appveyor.com/api/projects/status/n3i9coaq6sl1iuoy/branch/master?svg=true)](https://ci.appveyor.com/project/markekraus/mvp-psgithub/branch/master)
+
 Utility Functions for Adding PowerShell GitHub Contributions to the Microsoft MVP API.
 
 ## Installation
