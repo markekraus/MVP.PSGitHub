@@ -27,8 +27,11 @@ Properties {
     if ($ENV:BHBranchName -eq "master") {
         $BuildVersion = [version]::New($CurrentVersion.Major, $CurrentVersion.Minor, ($CurrentVersion.Build + 1))
     }
+    $GalleryVersion = Get-NextNugetPackageVersion -Name $ModuleName
+    if ($BuildVersion -lt $GalleryVersion) {
+        $BuildVersion = $GalleryVersion
+    }
     If ($ENV:BHBranchName -eq "master" -and $ENV:BHCommitMessage -match '!deploy') {
-        $GalleryVersion = Get-NextPSGalleryVersion -Name $ModuleName
         $BuildVersion = [version]::New($CurrentVersion.Major, ($CurrentVersion.Minor + 1), 0)
         if (
             $CurrentVersion.Minor -eq 0 -and
