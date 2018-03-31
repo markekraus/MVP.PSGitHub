@@ -23,7 +23,7 @@
     Author            = 'Mark Kraus'
 
     # Company or vendor of this module
-    CompanyName       = ''
+    CompanyName       = 'markekraus'
 
     # Copyright statement for this module
     Copyright         = 'Copyright (c) Mark Kraus. All rights reserved.'
@@ -94,7 +94,7 @@
         PSData = @{
 
             # Tags applied to this module. These help with module discovery in online galleries.
-            Tags       = @('MVP', 'GitHub', 'MicrosoftMVP ')
+            Tags       = @('MVP', 'GitHub', 'MicrosoftMVP')
 
             # A URL to the license for this module.
             LicenseUri = 'https://github.com/markekraus/MVP.PSGitHub/blob/master/LICENSE'
