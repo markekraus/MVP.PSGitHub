@@ -28,7 +28,7 @@ $PSDefaultParameterValues['Install-Module:Scope'] = 'CurrentUser'
     # Module Dependencies
     @{Name = 'BetterTls'; RequiredVersion = '0.1.0.0' }
     @{Name = 'MVP'; RequiredVersion = '0.0.2.0' }
-    @{Name = 'configuration'; RequiredVersion = '1.2.0' }
+    @{Name = 'configuration'; RequiredVersion = '1.2.0'; AllowClobber = $true }
 
 ) | Foreach-Object {
     $Params = $_
@@ -38,6 +38,7 @@ $PSDefaultParameterValues['Install-Module:Scope'] = 'CurrentUser'
     }
     Remove-Module -Force -Name $Params.Name -ErrorAction SilentlyContinue
     try {$Params.Remove('SkipPublisherCheck')}catch {}
+    try {$Params.Remove('AllowClobber')}catch {}
     Import-Module -Global -Force @Params
 }
 
