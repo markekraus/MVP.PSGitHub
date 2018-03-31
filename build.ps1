@@ -45,6 +45,9 @@ $PSDefaultParameterValues['Install-Module:Scope'] = 'CurrentUser'
 Set-BuildEnvironment -ErrorAction SilentlyContinue
 Set-BuildEnvironment -ErrorAction SilentlyContinue -Path src -Force
 Set-BuildEnvironment -ErrorAction SilentlyContinue -Force
+if ($env:ModuleName) {
+    $ENV:BHProjectName = $env:ModuleName
+}
 $ENV:BHBuildOutput = Join-Path $ENV:BHProjectPath "bin\$ENV:BHProjectName"
 $ENV:BHBinDir = Join-Path $ENV:BHProjectPath "bin"
 if ( $env:PSModulePath -notmatch [regex]::Escape($ENV:BHBinDir)) {
