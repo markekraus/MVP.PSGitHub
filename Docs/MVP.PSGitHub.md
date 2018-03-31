@@ -26,3 +26,6 @@ Creates a new PowerShell Issue Comment MVP Contribution.
 ### [New-MVPPSRfcCommentContribution](New-MVPPSRfcCommentContribution.md)
 Creates a new PowerShell RFC Comment MVP Contribution.
 
+### [New-MVPPSRfcContribution](New-MVPPSRfcContribution.md)
+Creates a new PowerShell RFC MVP Contribution.
+
