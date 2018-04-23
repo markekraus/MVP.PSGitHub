@@ -20,6 +20,9 @@ Creates a new PowerShell Documentation MVP Contribution.
 ### [New-MVPPSFeatureRequestContribution](New-MVPPSFeatureRequestContribution.md)
 Creates a new PowerShell Feature Request MVP Contribution.
 
+### [New-MVPPSGistContribution](New-MVPPSGistContribution.md)
+Creates a new PowerShell Gist MVP Contribution.
+
 ### [New-MVPPSIssueCommentContribution](New-MVPPSIssueCommentContribution.md)
 Creates a new PowerShell Issue Comment MVP Contribution.
 
