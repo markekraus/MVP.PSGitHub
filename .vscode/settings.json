@@ -16,5 +16,6 @@
     "editor.insertSpaces": true,
     "editor.renderWhitespace": "all",
     "editor.trimAutoWhitespace": true,
-    "files.trimTrailingWhitespace": true
+    "files.trimTrailingWhitespace": true,
+    "powershell.powerShellDefaultVersion": "Windows PowerShell (x64)"
 }
