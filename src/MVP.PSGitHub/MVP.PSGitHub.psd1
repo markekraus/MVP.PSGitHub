@@ -106,7 +106,7 @@
             # IconUri = ''
 
             # ReleaseNotes of this module
-            ReleaseNotes = 'Add New-MVPPSPullRequestReviewContribution'
+            ReleaseNotes = 'Fix URI bug in New-MVPPSFeatureRequestContribution'
 
         } # End of PSData hashtable
 
