@@ -94,19 +94,19 @@
         PSData = @{
 
             # Tags applied to this module. These help with module discovery in online galleries.
-            Tags       = @('MVP', 'GitHub', 'MicrosoftMVP')
+            Tags         = @('MVP', 'GitHub', 'MicrosoftMVP')
 
             # A URL to the license for this module.
-            LicenseUri = 'https://github.com/markekraus/MVP.PSGitHub/blob/master/LICENSE'
+            LicenseUri   = 'https://github.com/markekraus/MVP.PSGitHub/blob/master/LICENSE'
 
             # A URL to the main website for this project.
-            ProjectUri = 'https://github.com/markekraus/MVP.PSGitHub/'
+            ProjectUri   = 'https://github.com/markekraus/MVP.PSGitHub/'
 
             # A URL to an icon representing this module.
             # IconUri = ''
 
             # ReleaseNotes of this module
-            # ReleaseNotes = ''
+            ReleaseNotes = 'Add New-MVPPSPullRequestReviewContribution'
 
         } # End of PSData hashtable
 

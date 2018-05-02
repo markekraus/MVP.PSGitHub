@@ -29,6 +29,9 @@ Creates a new PowerShell Issue Comment MVP Contribution.
 ### [New-MVPPSPullRequestContribution](New-MVPPSPullRequestContribution.md)
 Creates a new PowerShell Pull Request MVP Contribution.
 
+### [New-MVPPSPullRequestReviewContribution](New-MVPPSPullRequestReviewContribution.md)
+Creates a new PowerShell Pull Request Review MVP Contribution.
+
 ### [New-MVPPSRfcCommentContribution](New-MVPPSRfcCommentContribution.md)
 Creates a new PowerShell RFC Comment MVP Contribution.
 
